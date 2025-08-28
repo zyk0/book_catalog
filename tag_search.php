@@ -1,5 +1,5 @@
 <?php
-// поиск по тегам
+// поиск по тегу
 include 'config.php';
 
 $term = $_GET['term'] ?? '';

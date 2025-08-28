@@ -37,7 +37,7 @@ $result = $stmt->get_result();
     <?php while ($row = $result->fetch_assoc()): ?>
         <div style="margin-bottom: 20px;">
 				<?php if ($row['cover']): ?>
-					<a href="book.php?id=<?php echo $row['id']; ?>">
+					<a href="one_book.php?id=<?php echo $row['id']; ?>">
 						<img src="uploads/<?php echo htmlspecialchars($row['cover']); ?>" width="100" alt="Cover">
 					</a>
 				<?php endif; ?>
