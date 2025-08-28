@@ -25,10 +25,10 @@
 
     <h1>Add a New Book</h1>
     <form action="insert_book.php" method="POST" enctype="multipart/form-data" autocomplete="off">
-        <label>Author:    <input type="text" name="author" required></label><br><br>
-		<label>Book Name: <input type="text" name="name" required></label><br><br>
-        <label>Year:      <input type="number" name="year" required></label><br><br>
-        <label>Tag:       <input type="text" id="tag" name="tag"></label><br><br>
+        <label>Book Name: <input type="text" name="name" required></label><br><br>
+        <label>Author: <input type="text" name="author" required></label><br><br>
+        <label>Year: <input type="number" name="year" required></label><br><br>
+        <label>Tag: <input type="text" id="tag" name="tag"></label><br><br>
         <div id="tag-suggestions"></div>
         <label>Cover: <input type="file" name="cover"></label><br><br>
         <input type="submit" value="Add Book">
