@@ -1,0 +1,32 @@
+.button-small {
+	font-size: 85%;
+}
+
+.menu-height{
+	height: 100px;
+}
+
+.xsmall{
+	font-size: 70%;
+}
+
+.left-box{
+	padding: 10px 0px 10px 50px;
+	/* background-color: #FBDFD4; */
+}
+
+.footer {
+    background: #ffffff;
+    color: #000000;
+    text-align: left;
+    padding: 1em 0em 1em 1em ;
+	
+	
+    font-size: 80%;
+	border-top: 1px solid ;
+}
+
+.addbookfooter{
+	max-height: 1em;
+	margin: 12em 0em 0em 0em ;
+}
