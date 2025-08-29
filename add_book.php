@@ -11,7 +11,6 @@
 	
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="css.css">
-
 	
     <style>
     #tag-suggestions div:hover {
@@ -58,12 +57,12 @@
 		<form class="pure-form" action="insert_book.php" method="POST" enctype="multipart/form-data" autocomplete="off">
 		<fieldset class="pure-group">
 		
-			<label><input type="text" name="name" class="pure-input-2-3" placeholder="Book Name" required /></label>
-			<label><input type="text"    name="author" class="pure-input-2-3" placeholder="Author" required /></label>
-			<label><input type="number"  name="year"   class="pure-input-2-3" placeholder="Number" 
+			<label><input type="text" name="name" class="pure-input-2-3" placeholder="  Book Name" required /></label>
+			<label><input type="text"    name="author" class="pure-input-2-3" placeholder="  Author" required /></label>
+			<label><input type="number"  name="year"   class="pure-input-2-3" placeholder="  Year" 
 				min="2010" max="<?php echo $nextyear; ?>" step="1" value="" required />
 			</label>
-			<label><input type="text" id="tag" name="tag" class="pure-input-2-3" placeholder="Tag"  /></label>
+			<label><input type="text" id="tag" name="tag" class="pure-input-2-3" placeholder="  Tag" /></label>
 			<div id="tag-suggestions"></div>
 
 			<fieldset class="pure-group">
@@ -80,8 +79,6 @@
 
 </div> 
 
-
-
 	<!--
     <h1>Add a New Book</h1>
     <form action="insert_book.php" method="POST" enctype="multipart/form-data" autocomplete="off">
@@ -94,8 +91,6 @@
         <input type="submit" value="Add Book">
     </form>
 	-->
-	
-
 
 <script>
 const tagInput = document.getElementById('tag');

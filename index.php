@@ -1,6 +1,5 @@
 <?php
 include 'config.php';
-
 // нумерация
 $limit = 4;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
@@ -18,8 +17,6 @@ $stmt = $conn->prepare("SELECT * FROM books ORDER BY id DESC LIMIT ? OFFSET ?");
 $stmt->bind_param("ii", $limit, $offset);
 $stmt->execute();
 $result = $stmt->get_result();
-
-
 ?>
 
 <!DOCTYPE html>
@@ -32,10 +29,8 @@ $result = $stmt->get_result();
 			integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" 
 			crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="css.css">
-		
 </head>
 <body>
 
@@ -54,16 +49,18 @@ $result = $stmt->get_result();
     </ul>
 </div>
 
-
 <div class="pure-g">
-<div class="pure-u-3-5"><p>Thirds</p>
-	
+<div class="pure-u-4-5"><p>Thirds</p>
 <div class="left-box">	
+
+<?php
+echo '<div class="image-container">';
+?>
 	<?php while ($row = $result->fetch_assoc()): ?>
 		<div style="margin-bottom: 20px;">
 				<?php if ($row['cover']): ?>
 					<a href="one_book.php?id=<?php echo $row['id']; ?>">
-						<img class="pure-img" src="uploads/<?php echo htmlspecialchars($row['cover']); ?>" 
+						<img class="image-item" src="uploads/<?php echo htmlspecialchars($row['cover']); ?>" 
 						width="100" alt="Cover">
 					</a>
 				<?php endif; ?>
@@ -76,9 +73,9 @@ $result = $stmt->get_result();
 		</div>
 		<hr>
 	<?php endwhile; ?>
-
-
-
+<?php
+echo '</div>';
+?>
 
     <div style="margin-top: 20px;">
         <?php if ($page > 1): ?>
@@ -100,17 +97,10 @@ $result = $stmt->get_result();
         <?php endif; ?>
     </div>
 	
-	
 </div>
-
 </div>
-<div class="pure-u-1-5"><p>Thirds</p></div>
 <div class="pure-u-1-5"><p>Thirds</p></div>
 </div> 
-
-	
-	
 <footer class="footer">footer</footer>	
-	
 </body>
 </html>

@@ -31,8 +31,7 @@ $book = $result->fetch_assoc();
 	
 	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css">
 	<link rel="stylesheet" href="css.css">
-
-	  
+  
 </head>
 <body>
 
