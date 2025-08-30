@@ -59,6 +59,12 @@
 }
 */
 
+
+.list-table{
+	background-color: #a8d8ff;
+	margin: 0px 0px 10px 30px;
+}
+
 @media (max-width: 768px) {
     .image-container {
         grid-template-columns: repeat(2, 1fr); 

@@ -1,27 +1,17 @@
+
 <?php
+
 include 'config.php';
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
-if ($id <= 0) {
-    die("Invalid book ID.");
-}
+$sql = "SELECT * FROM books"; 
+$result = $conn->query($sql);
 
-$stmt = $conn->prepare("SELECT * FROM books WHERE id = ?");
-$stmt->bind_param("i", $id);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows === 0) {
-    die("Book not found.");
-}
-
-$book = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo htmlspecialchars($book['name']); ?> - Book Details</title>
+    <title> List Book</title>
 	<link rel="icon" type="image/x-icon" href="https://img.icons8.com/ultraviolet/50/book.png">
 	<link rel="stylesheet" 
 		  href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" 
@@ -51,31 +41,55 @@ $book = $result->fetch_assoc();
 </div>
 
 <div class="pure-g">
-    <div class="pure-u-lg-2-4"><p>1 4</p>
-	<div class="left-box">
+	<div class="pure-u-lg-3-5"><p>3 5</p> 
 	
-		<h1><?php echo htmlspecialchars($book['name']); ?></h1>
+	
+<?php 
 
-		<?php if ($book['cover']): ?>
-		
-			<img class="pure-img" src="uploads/<?php echo htmlspecialchars($book['cover']); ?>" 
-			alt="Cover" 
-			style="max-width:300px;">
-		<?php endif; ?>
 
-		<p><strong>Author:</strong> <?php echo htmlspecialchars($book['author']); ?></p>
-		<p><strong>Year:</strong> <?php echo $book['year']; ?></p>
-		<?php if (!empty($book['tag'])): ?>
-			<p><strong>Tag:</strong> <?php echo htmlspecialchars($book['tag']); ?></p>
-		<?php endif; ?>
-		
-		<p><a class="pure-button" href="index.php">on catalog page</a></p>
-		
+// fetch_all  ассоциативный массив
+if ($result->num_rows > 0) {
+    $rows = $result->fetch_all(MYSQLI_ASSOC); 
+    
+    // table
+    echo "
+			<table class='pure-table list-table'>
+			<thead>
+			<tr>
+				<th> id</th>
+				<th> name</th>
+				<th> author</th>
+			</tr>
+			</thead>
+			";
+    
+    //  foreach () 
+    foreach ($rows as $row) {
+        echo "
+			<tbody>
+				<tr class=''>
+                <td>" . $row['id'] . "</td>
+                <td>" . $row['name'] . "</td>
+                <td>" . $row['author'] . "</td>
+				</tr>
+			 <tbody>
+			 ";
+    }
+
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+// Close the connection
+$conn->close();
+?>
+
+
 	</div>
+    <div class="pure-u-lg-1-5"><p>1 5 </p> 
 	</div>
-    <div class="pure-u-lg-1-4"><p>1 4</p> </div>
-	<div class="pure-u-lg-1-4"><p>1 4</p> </div>
-
+	<div class="pure-u-lg-1-5"><p>1 5</p> </div>
 </div>
 
 <footer class="footer">footer</footer>	

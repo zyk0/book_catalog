@@ -38,7 +38,7 @@ $result = $stmt->get_result();
     <a href="#" class="pure-menu-heading pure-menu-link pure-menu-disabled">Book shelf</a>
     <ul class="pure-menu-list">
         <li class="pure-menu-item">
-            <a href="index.php" class="pure-menu-link">Index</a>
+            <a href="list.php" class="pure-menu-link">List</a>
         </li>
         <li class="pure-menu-item">
             <a href="index.php" class="pure-menu-link">Catalog</a>
